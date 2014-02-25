@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Qinker</title>
+    <link type="text/css" href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="/static/css/itinerary.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="/static/img/site_icon.png">
+	
+</head>
+<body>
+
+    <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/gmap3.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	<script type="text/javascript" src="/static/js/markerwithlabel.js"></script>
+	<script type="text/javascript" src="/static/js/itinerary.js"></script>
+<div id="container">	
+	<div id="header">
+		<form class="form-inline" role="form" onsubmit="changePlace();">
+		  <div class="form-group">
+			<span style="color: white">目的地:</span>
+		  </div>
+		  <div class="form-group">
+			<input type="text" class="form-control" id="place" onenter="changePlace();" placeholder="请输入行程目的地">
+		  </div>
+		  <div class="form-group"><button type="button" class="btn btn-info" onclick="changePlace();">查询</button></div>
+		</form>
+        <a href="" onclick="clearRoute()">不显示线路</a>
+	</div>
+
+	<div id="main">
+		<div class="main_l">
+			<div id="left" class="route">
+				<div id="route-wrap"><div id="bkBtn"><button id="back" class="btn btn-default" onclick="goUp();">上一级</button></div><div class="center-block">
+					<a href="###" id="next"><img src="static/img/left.png" /></a><button id="itinerary-name" class="btn btn-primary" onclick="changeRoute(0);">行程名</button><a href="###" id="prev"><img src="static/img/right.png" /></a>
+				</div></div>
+			</div>
+		</div>
+		<div class="main_r">
+			<div id="right" class="gmap3"></div>
+		</div>
+		<div style="clear:both;"/>
+	</div>
+
+    <div id="location" class="box">
+		<div id="lat-north" class="line"><div class="name">North</div><div class="value"></div></div>
+		<div id="lng-east" class="line"><div class="name">East</div><div class="value"></div></div>
+		<div id="lat-center" class="line"><div class="name">CLat</div><div class="value"></div></div>
+		<div id="lng-center" class="line"><div class="name">CLng</div><div class="value"></div></div>
+		<div id="lat-south" class="line"><div class="name">South</div><div class="value"></div></div>
+		<div id="lng-west" class="line"><div class="name">West</div><div class="value"></div></div>
+    </div>
+	
+	<div id="sight-info">
+		<div id="title"><span id="name"></span><span id="name-en"></span></div>
+		<div id="pic"><img src="static/img/bund.jpg"/></div>
+		<div id="sight-detail">
+			<div>电话:<span id="telephone" class="sight-item"></span></div>
+			<div>地址:<span id="address" class="sight-item"></span></div>
+			<div>开放时间:<span id="opentime" class="sight-item"></span></div>
+			<div>门票信息:<span id="expense" class="sight-item"></span></div>
+		</div>
+		<div>
+			<h3>景点介绍：</h3>
+			<div id="description"></div>
+		</div>
+		
+		<a href="javascript:" id="close" onclick="hideSightDetail();"><img src="static/img/close.gif"/></a>
+	</div>
+</div>
+</body>
+</html>
